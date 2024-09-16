@@ -1,0 +1,9 @@
+   version: "2"
+   authtoken: 2m4HYykpa1dopd9BoLDABUFTa7C_5ke4TM3zfbsDp8mmqjcZn
+   tunnels:
+     comfyui:
+       addr: 8188
+       proto: http
+     flaskapi:
+       addr: 5000
+       proto: http

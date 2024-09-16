@@ -10,14 +10,12 @@ import urllib.parse
 from datetime import datetime
 from PIL import Image
 import io
-from flask_cors import CORS
 
 # Load environment variables
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
 
 # Initialize Supabase client
 supabase: Client = create_client(
@@ -25,9 +23,7 @@ supabase: Client = create_client(
     os.getenv("SUPABASE_KEY")
 )
 
-# Use environment variable for ComfyUI address, defaulting to localhost
-server_address = os.getenv('COMFYUI_ADDRESS', '127.0.0.1:8188')
-
+server_address = "127.0.0.1:8188"
 client_id = str(uuid.uuid4())
 
 # Load the workflow JSON
@@ -135,4 +131,4 @@ def generate_image():
     })
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(debug=True)
